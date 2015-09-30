@@ -1,7 +1,12 @@
 var dict={ dog:"狗", cat:"貓", a: "一隻", chase:"追", eat:"吃"};
  
-function dlook (c){
-    var b=dict[c];
-    return c+"="+b;
+function dlook (x){
+  var c = [ ];
+  for (i in x) {
+    var eword = x[i];
+    var cword = dict[eword];
+    c.push(cword);
+  }
+  return c;
 }
 console.log(dlook(process.argv.slice(2)));
