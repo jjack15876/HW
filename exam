@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Guess the Number</title>
+</head>
+<script>
+	// 正確數字
+	var correctNum = Math.floor(Math.random()*100)+1;
+	var biggestNum = 100;
+	var smallestNum = 0;
+
+	// 按鈕函式
+	function guessIt() {
+		document.getElementById('btn').onclick = function(evt) {
+			guessAnswer();
+		}
+	}
+
+	// 解答函式
+	function guessAnswer() {
+		var textNum = document.getElementById('textfield').value;
+		var textToInt = parseInt(textNum);
+
+		// 小於正確數字
+		if (textToInt < correctNum) {
+			alert('oops! 正確數字小於 ' + biggestNum + ' 大於 ' + textToInt + ' !');
+		// 等於正確數字
+		} else if (textToInt == correctNum) {
+			alert('yes! 正確數字就是 ' + correctNum + ' !');
+		// 大於正確數字
+		} else if (textToInt > correctNum) {
+			alert('oops! 正確數字小於 ' + textToInt + ' 大於 ' + smallestNum + ' !');
+		// 非數字
+		} else if (!textToInt) {
+			alert('這是什麼？');
+		}
+
+	}
+	// 讀取完畢，執行 guessIt()
+	window.onload = guessIt;
+</script>
+<body>
+	<p>猜猜我的數字，正負數不拘喲</p>
+	<input type="text" id="textfield" placeholder="輸入你的數字！">
+	<input type="button" id="btn" value="猜猜看">
+</body>
+</html>
