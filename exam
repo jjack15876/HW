@@ -10,14 +10,14 @@
 	var biggestNum = 100;
 	var smallestNum = 0;
 
-
+       //guessIt() 函式抓取 #btn 的 onclick 事件//
 	function guessIt() {
 		document.getElementById('btn').onclick = function(evt) {
 			guessAnswer();
 		}
 	}
 
-
+       //parseInt()抓取前面的整數 前提是前面不是字元// 
 	function guessAnswer() {
 		var textNum = document.getElementById('textfield').value;
 		var textToInt = parseInt(textNum);
@@ -37,7 +37,7 @@
 		}
 
 	}
-
+      //頁面讀取完畢後就執行 guessIt() 函式//
 	window.onload = guessIt;
 </script>
 <body>
